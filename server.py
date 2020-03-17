@@ -51,3 +51,7 @@ def check_valid_expression(text):
     if not has_operator:
         return False, "expression should have at least one operator"
     return True, text
+
+if __name__ == '__main__':
+    app.run()
+
