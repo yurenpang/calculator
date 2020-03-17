@@ -28,11 +28,16 @@ def create_calculation():
 
     return render_template('create_calculation.html', calculation=None)
 
+@app.route('/delete', methods=['GET', 'POST'])
+def delete_history():
+    db.db.drop_all()
+    db.db.create_all()
+    return redirect('/')
+
 @app.route('/error')
 def handle_error():
     message = request.args['message']
     return render_template("error.html", message=message)
-
 
 def check_valid_expression(text):
     has_operator = False
