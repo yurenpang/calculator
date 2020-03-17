@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Sezzle Calculator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/calculator.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/calculator.css') }}">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container jumbotron" style="height: 100%; margin:auto; width: 50%">
+    <div class="container jumbotron">
         <h3 class="display-4">Calculate at Sezzle</h3>
         <p class="lead">Please calculate</p>
 
@@ -16,6 +16,7 @@
                 <input type="text" name="answer" />
                 <br>
 
+                <div></div>
                 <input type="button" value=" 1 " onclick="calculator.answer.value += '1'" />
                 <input type="button" value=" 2 " onclick="calculator.answer.value += '2'" />
                 <input type="button" value=" 3 " onclick="calculator.answer.value += '3'" />

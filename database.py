@@ -1,6 +1,10 @@
 from flask_sqlalchemy import SQLAlchemy
 
+
 class Database:
+    """
+    This data supports get() and create() calculation history item
+    """
     def __init__(self, app):
         db = SQLAlchemy(app)
         self.db = db
@@ -12,15 +16,14 @@ class Database:
             return self.model.query.get(id)
 
         all = self.model.query.all()
-        if len(all) < 20:
+        if len(all) < 10:
             return all
-        return self.model.query[-20:]
+        return self.model.query[-10:]
 
     def create(self, ip, text):
         calc = self.model(ip, text)
         self.db.session.add(calc)
         self.db.session.commit()
-
 
 
 def calcFactory(db):
@@ -33,7 +36,5 @@ def calcFactory(db):
         def __init__(self, ip, text):
             self.ip = ip
             self.text = text
-            # engine = create_engine(URL(**settings.DATABASE))
-            # engine.connect()
 
     return Calculation

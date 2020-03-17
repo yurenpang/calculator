@@ -1,3 +1,6 @@
+"""
+Code to initialize the test.db during test phase
+"""
 from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData
 engine = create_engine('sqlite:///./test.db', echo=True)
 meta = MetaData()
