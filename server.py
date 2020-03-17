@@ -14,6 +14,10 @@ def main_page():
 
 @app.route('/create', methods=['GET', 'POST'])
 def create_calculation():
+    """
+    Create a Calculation object after submitting a calculator form
+    :return:
+    """
     if request.method == 'POST':
         ip = request.remote_addr
         text = request.form['answer']
@@ -39,6 +43,20 @@ def handle_error():
     message = request.args['message']
     return render_template("error.html", message=message)
 
+@app.route('/query')
+def query():
+    """
+    Handles ajax call in app.js
+    :return:
+    """
+    rows = []
+    data = db.get()
+
+    for calc in data:
+        rows.append({"ip" : calc.ip, "text":calc.text})
+
+    return jsonify(rows)
+
 
 def find_user(ip):
     if ip in ip_dic:
@@ -46,6 +64,7 @@ def find_user(ip):
     user_id = len(ip_dic) + 1
     ip_dic[ip] = "User " + str(user_id)
     return ip_dic[ip]
+
 
 def check_valid_expression(text):
     has_operator = False
