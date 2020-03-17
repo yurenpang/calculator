@@ -1,0 +1,29 @@
+$background-pic: "https://pngimage.net/wp-content/uploads/2018/06/light-green-background-png-3.png";
+
+.background {
+  background-image: url($background-pic);
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.error-section {
+  text-align: center;
+  padding: 30px;
+
+  .error-caption {
+    font-size: medium;
+  }
+}
+
+.error-btn {
+  margin: 15px;
+}
+
